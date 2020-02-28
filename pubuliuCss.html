@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>CSS实现瀑布流</title>
+	<script src='jquery.js'></script>
+	<style>
+	*{
+		padding:0;
+		margin:0;
+	}
+		/*
+		column-count/column-gap/column-width/:
+		 .container{
+			column-width:250px;
+			-webkit-column-width:250px;
+			column-gap: 5px;
+			-webkit-column-gap:5px;
+		}
+		.container div{
+			width:250px;
+			margin:5px;
+		}
+		div img{
+			height: 100%;
+		}*/
+		.container{
+			width:770px;
+			height: 100vh;
+			absolute:relative;
+		}
+		.container div{
+			width:100px;
+			padding-right:10px;
+			position: absolute;
+		}
+		.container>div img{
+			width: 100%;
+		}
+		.container>div:last-child{
+			padding-right:0;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		
+		
+		<div><img src="http://pic41.nipic.com/20140508/18651744_193950975000_2.jpg" alt=""></div>
+		<div><img src="http://p0.so.qhmsg.com/t01dbb4867331f059ae.jpg" alt=""></div>
+		<div><img src="http://pic38.nipic.com/20140226/18071023_170411028000_2.jpg" alt=""></div>
+		<div><img src="https://p2.ssl.qhimgs1.com/sdr/400__/t01e9d5408de815c2d8.jpg" alt=""></div>
+		<div><img src="http://pic41.nipic.com/20140508/18651744_193950975000_2.jpg" alt=""></div>
+		<div><img src="http://p0.so.qhmsg.com/t01dbb4867331f059ae.jpg" alt=""></div>
+		<div><img src="https://p2.ssl.qhimgs1.com/sdr/400__/t01e9d5408de815c2d8.jpg" alt=""></div>
+		
+	</div>
+	<script>
+	window.onload = function(){
+		let arr=[];
+		let data = ["http://pic41.nipic.com/20140508/18651744_193950975000_2.jpg","https://p2.ssl.qhimgs1.com/sdr/400__/t01e9d5408de815c2d8.jpg","http://pic41.nipic.com/20140508/18651744_193950975000_2.jpg","http://pic41.nipic.com/20140508/18651744_193950975000_2.jpg","https://p2.ssl.qhimgs1.com/sdr/400__/t01e9d5408de815c2d8.jpg","http://pic41.nipic.com/20140508/18651744_193950975000_2.jpg","http://pic41.nipic.com/20140508/18651744_193950975000_2.jpg","https://p2.ssl.qhimgs1.com/sdr/400__/t01e9d5408de815c2d8.jpg","http://pic41.nipic.com/20140508/18651744_193950975000_2.jpg","http://pic41.nipic.com/20140508/18651744_193950975000_2.jpg","https://p2.ssl.qhimgs1.com/sdr/400__/t01e9d5408de815c2d8.jpg","http://pic41.nipic.com/20140508/18651744_193950975000_2.jpg","http://pic41.nipic.com/20140508/18651744_193950975000_2.jpg","https://p2.ssl.qhimgs1.com/sdr/400__/t01e9d5408de815c2d8.jpg","http://pic41.nipic.com/20140508/18651744_193950975000_2.jpg","http://pic41.nipic.com/20140508/18651744_193950975000_2.jpg","https://p2.ssl.qhimgs1.com/sdr/400__/t01e9d5408de815c2d8.jpg","http://pic41.nipic.com/20140508/18651744_193950975000_2.jpg","http://pic41.nipic.com/20140508/18651744_193950975000_2.jpg","https://p2.ssl.qhimgs1.com/sdr/400__/t01e9d5408de815c2d8.jpg","http://pic41.nipic.com/20140508/18651744_193950975000_2.jpg","http://pic41.nipic.com/20140508/18651744_193950975000_2.jpg","https://p2.ssl.qhimgs1.com/sdr/400__/t01e9d5408de815c2d8.jpg","http://pic41.nipic.com/20140508/18651744_193950975000_2.jpg","http://pic41.nipic.com/20140508/18651744_193950975000_2.jpg","https://p2.ssl.qhimgs1.com/sdr/400__/t01e9d5408de815c2d8.jpg","http://pic41.nipic.com/20140508/18651744_193950975000_2.jpg",]
+		let allwidth = $('.container').width();
+		let width = $('.container>div:first').width()+10;
+		let col = allwidth/width;
+		function waterFall(){
+			let imglist = $('.container')[0].children;
+			for(let i = 0;i < imglist.length;i++){
+				let img = imglist[i];
+				if(i<col){
+					$(img).css({top:0,left:i*width});
+					arr.push(img.offsetHeight);
+				}else{
+					let left = getfn(arr).minIdx*width;
+					let top = getfn(arr).min+10;
+					$(img).css({top:top,left:left});
+					arr[getfn(arr).minIdx] = arr[getfn(arr).minIdx]+$(img).height()+10;
+				}
+			}
+
+		}
+		function getfn(arr){
+				let min = arr[0];
+				let minIdx = 0;
+			for(let i = 1;i < arr.length;i++){
+				if(min > arr[i]){
+					min = arr[i];
+					minIdx = i;
+				}
+		}
+		return obj = {
+			min:min,
+			minIdx:minIdx
+		}
+	}
+		window.onscroll = function(){
+			let scrollTop = document.body.scrollTop||document.documentElement.scrollTop;
+			let clientHeight = document.body.clientHeight||document.documentElement.clientHeight;
+			console.log(getfn(arr).min);
+			console.log(scrollTop);
+			console.log(clientHeight);
+			if(getfn(arr).min <= (scrollTop+clientHeight)){
+				console.log(12);console.log(12);
+				for(let i = 0;i<data.length;i++){
+					let div = document.createElement('div');
+					let img= document.createElement('img');
+					$('.container').append(div);
+					$(div).append(img);
+					img.src = data[i];
+				}
+			} 
+		}
+		waterFall()
+	}
+	</script>
+</body>
+</html>

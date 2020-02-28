@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <link rel="stylesheet" type="text/css" href="index.css">
+  <!-- <script src="https://unpkg.com/vue/dist/vue.js"></script> -->
+  <script type="text/javascript" src='index.js'></script>
+  <style>
+    #big{
+      border:3px solid;
+      width:100px;
+      height:100px;
+      border-color:#aaa;
+      position:relative;
+      animation: slow 5s;
+      -webkit-animation:slow 5s;
+    }
+    @keyframes slow{
+      0%{
+        top:0;
+        left:0;
+      }
+      25%{
+        left:25%;
+        border-color:lightyellow;
+      }
+      50%{
+        left:50%;
+        border-color:lightgreen;
+      }
+      100%{
+        right:0;
+        border-color:lightblue;
+      }
+    }
+  </style>
+</head>
+<body>
+    <div id="main">
+      <!-- <div class="makeBig">
+      </div> -->
+
+      <label for="changeLight">
+        <input type="button" value='变暗'>
+      </label>
+      <div id="big">
+      <!-- <div class="smallMask"></div> -->
+      <img src="https://p2.ssl.qhimgs1.com/sdr/400__/t01e9d5408de815c2d8.jpg" alt="">
+      </div>
+      <div id="mask">
+      </div>
+      <div id="imgList">
+      
+       <ul>
+        <li class="imgl"><img src="https://p2.ssl.qhimgs1.com/sdr/400__/t01e9d5408de815c2d8.jpg" alt=""></li>
+        <li class="imgl"><img src="http://img4.makepolo.net/img4/889/947/100015388947_14292598542456.jpg" alt=""></li>
+        <li class="imgl"><img src="http://p0.so.qhmsg.com/t01dbb4867331f059ae.jpg" alt=""></li>
+        <li class="imgl"><img src="http://pic38.nipic.com/20140226/18071023_170411028000_2.jpg" alt=""></li>
+        <li class="imgl"><img src="http://pic41.nipic.com/20140508/18651744_193950975000_2.jpg" alt=""></li>
+         <li class="imgl"><img src="https://p2.ssl.qhimgs1.com/sdr/400__/t01e9d5408de815c2d8.jpg" alt=""></li>
+        <li class="imgl"><img src="http://img4.makepolo.net/img4/889/947/100015388947_14292598542456.jpg" alt=""></li>
+        <li class="imgl"><img src="http://p0.so.qhmsg.com/t01dbb4867331f059ae.jpg" alt=""></li>
+        <li class="imgl"><img src="http://pic38.nipic.com/20140226/18071023_170411028000_2.jpg" alt=""></li>
+        <li class="imgl"><img src="http://pic41.nipic.com/20140508/18651744_193950975000_2.jpg" alt=""></li>
+        </ul>
+      </div>
+    </div>
+    <div class="transitiondiv"></div>
+  <!-- <div id="move">
+      移动的盒子
+  </div> -->
+  <script>
+  
+  </script>
+</body>
+</html>
