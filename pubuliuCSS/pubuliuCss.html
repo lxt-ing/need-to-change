@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>CSS实现瀑布流</title>
+	<script src='jquery.js'></script>
+	<style>
+	*{
+		padding:0;
+		margin:0;
+	}
+		/*
+		column-count/column-gap/column-width/:
+		 .container{
+			column-width:250px;
+			-webkit-column-width:250px;
+			column-gap: 5px;
+			-webkit-column-gap:5px;
+		}
+		.container div{
+			width:250px;
+			margin:5px;
+		}
+		div img{
+			height: 100%;
+		}*/
+		.container{
+			width:770px;
+			height: 100vh;
+			position: relative;
+		}
+		.container div{
+			width:100px;
+			padding-right:10px;
+			position: absolute;
+		}
+		.container>div img{
+			width: 100%;
+		}
+		.container>div:last-child{
+			padding-right:0;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1583325948119&di=c305d45919f6a855ebc2acbd92671e66&imgtype=0&src=http%3A%2F%2Fpic.90sjimg.com%2Fback_pic%2Fqk%2Fback_origin_pic%2F00%2F02%2F98%2Fdbce360dd8cabe2cb620d72d3d85ac39.jpg" alt=""></div>
+		<div><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1583325869825&di=a2e5c74f0e4e575b39b166885d1d64eb&imgtype=0&src=http%3A%2F%2Fimage.biaobaiju.com%2Fuploads%2F20190424%2F11%2F1556076021-iXcyvkSAom.jpg" alt=""></div>
+		<div><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1583325948117&di=464b8baeca6cad13442e084fe78a5b1c&imgtype=0&src=http%3A%2F%2Fimage.biaobaiju.com%2Fuploads%2F20190928%2F18%2F1569667980-CzbaOZTRDJ.jpg" alt=""></div>
+		<div><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1583325948116&di=d7ac8ac05817485fe83eb59f83e8aa90&imgtype=0&src=http%3A%2F%2Fa.hiphotos.baidu.com%2Fzhidao%2Fpic%2Fitem%2Fbba1cd11728b471029f2fe42c2cec3fdfd03235a.jpg" alt=""></div>
+		<div><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1583325948119&di=c305d45919f6a855ebc2acbd92671e66&imgtype=0&src=http%3A%2F%2Fpic.90sjimg.com%2Fback_pic%2Fqk%2Fback_origin_pic%2F00%2F02%2F98%2Fdbce360dd8cabe2cb620d72d3d85ac39.jpg" alt=""></div>
+		<div><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1583325869825&di=a2e5c74f0e4e575b39b166885d1d64eb&imgtype=0&src=http%3A%2F%2Fimage.biaobaiju.com%2Fuploads%2F20190424%2F11%2F1556076021-iXcyvkSAom.jpg" alt=""></div>
+		<div><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1583325948116&di=d7ac8ac05817485fe83eb59f83e8aa90&imgtype=0&src=http%3A%2F%2Fa.hiphotos.baidu.com%2Fzhidao%2Fpic%2Fitem%2Fbba1cd11728b471029f2fe42c2cec3fdfd03235a.jpg" alt=""></div>
+		<div><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1583325948119&di=c305d45919f6a855ebc2acbd92671e66&imgtype=0&src=http%3A%2F%2Fpic.90sjimg.com%2Fback_pic%2Fqk%2Fback_origin_pic%2F00%2F02%2F98%2Fdbce360dd8cabe2cb620d72d3d85ac39.jpg" alt=""></div>
+		<div><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1583325869825&di=a2e5c74f0e4e575b39b166885d1d64eb&imgtype=0&src=http%3A%2F%2Fimage.biaobaiju.com%2Fuploads%2F20190424%2F11%2F1556076021-iXcyvkSAom.jpg" alt=""></div>
+		<div><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1583325948117&di=464b8baeca6cad13442e084fe78a5b1c&imgtype=0&src=http%3A%2F%2Fimage.biaobaiju.com%2Fuploads%2F20190928%2F18%2F1569667980-CzbaOZTRDJ.jpg" alt=""></div>
+		<div><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1583325948116&di=d7ac8ac05817485fe83eb59f83e8aa90&imgtype=0&src=http%3A%2F%2Fa.hiphotos.baidu.com%2Fzhidao%2Fpic%2Fitem%2Fbba1cd11728b471029f2fe42c2cec3fdfd03235a.jpg" alt=""></div>
+		<div><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1583325948119&di=c305d45919f6a855ebc2acbd92671e66&imgtype=0&src=http%3A%2F%2Fpic.90sjimg.com%2Fback_pic%2Fqk%2Fback_origin_pic%2F00%2F02%2F98%2Fdbce360dd8cabe2cb620d72d3d85ac39.jpg" alt=""></div>
+		<div><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1583325869825&di=a2e5c74f0e4e575b39b166885d1d64eb&imgtype=0&src=http%3A%2F%2Fimage.biaobaiju.com%2Fuploads%2F20190424%2F11%2F1556076021-iXcyvkSAom.jpg" alt=""></div>
+		<div><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1583325948116&di=d7ac8ac05817485fe83eb59f83e8aa90&imgtype=0&src=http%3A%2F%2Fa.hiphotos.baidu.com%2Fzhidao%2Fpic%2Fitem%2Fbba1cd11728b471029f2fe42c2cec3fdfd03235a.jpg" alt=""></div>
+		<div><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1583325948119&di=c305d45919f6a855ebc2acbd92671e66&imgtype=0&src=http%3A%2F%2Fpic.90sjimg.com%2Fback_pic%2Fqk%2Fback_origin_pic%2F00%2F02%2F98%2Fdbce360dd8cabe2cb620d72d3d85ac39.jpg" alt=""></div>
+		<div><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1583325869825&di=a2e5c74f0e4e575b39b166885d1d64eb&imgtype=0&src=http%3A%2F%2Fimage.biaobaiju.com%2Fuploads%2F20190424%2F11%2F1556076021-iXcyvkSAom.jpg" alt=""></div>
+		<div><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1583325948117&di=464b8baeca6cad13442e084fe78a5b1c&imgtype=0&src=http%3A%2F%2Fimage.biaobaiju.com%2Fuploads%2F20190928%2F18%2F1569667980-CzbaOZTRDJ.jpg" alt=""></div>
+		<div><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1583325948116&di=d7ac8ac05817485fe83eb59f83e8aa90&imgtype=0&src=http%3A%2F%2Fa.hiphotos.baidu.com%2Fzhidao%2Fpic%2Fitem%2Fbba1cd11728b471029f2fe42c2cec3fdfd03235a.jpg" alt=""></div>
+		<div><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1583325948119&di=c305d45919f6a855ebc2acbd92671e66&imgtype=0&src=http%3A%2F%2Fpic.90sjimg.com%2Fback_pic%2Fqk%2Fback_origin_pic%2F00%2F02%2F98%2Fdbce360dd8cabe2cb620d72d3d85ac39.jpg" alt=""></div>
+		<div><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1583325869825&di=a2e5c74f0e4e575b39b166885d1d64eb&imgtype=0&src=http%3A%2F%2Fimage.biaobaiju.com%2Fuploads%2F20190424%2F11%2F1556076021-iXcyvkSAom.jpg" alt=""></div>
+		<div><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1583325948116&di=d7ac8ac05817485fe83eb59f83e8aa90&imgtype=0&src=http%3A%2F%2Fa.hiphotos.baidu.com%2Fzhidao%2Fpic%2Fitem%2Fbba1cd11728b471029f2fe42c2cec3fdfd03235a.jpg" alt=""></div>
+		<div><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1583325948119&di=c305d45919f6a855ebc2acbd92671e66&imgtype=0&src=http%3A%2F%2Fpic.90sjimg.com%2Fback_pic%2Fqk%2Fback_origin_pic%2F00%2F02%2F98%2Fdbce360dd8cabe2cb620d72d3d85ac39.jpg" alt=""></div>
+		<div><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1583325869825&di=a2e5c74f0e4e575b39b166885d1d64eb&imgtype=0&src=http%3A%2F%2Fimage.biaobaiju.com%2Fuploads%2F20190424%2F11%2F1556076021-iXcyvkSAom.jpg" alt=""></div>
+		<div><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1583325948117&di=464b8baeca6cad13442e084fe78a5b1c&imgtype=0&src=http%3A%2F%2Fimage.biaobaiju.com%2Fuploads%2F20190928%2F18%2F1569667980-CzbaOZTRDJ.jpg" alt=""></div>
+		<div><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1583325948116&di=d7ac8ac05817485fe83eb59f83e8aa90&imgtype=0&src=http%3A%2F%2Fa.hiphotos.baidu.com%2Fzhidao%2Fpic%2Fitem%2Fbba1cd11728b471029f2fe42c2cec3fdfd03235a.jpg" alt=""></div>
+		<div><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1583325948119&di=c305d45919f6a855ebc2acbd92671e66&imgtype=0&src=http%3A%2F%2Fpic.90sjimg.com%2Fback_pic%2Fqk%2Fback_origin_pic%2F00%2F02%2F98%2Fdbce360dd8cabe2cb620d72d3d85ac39.jpg" alt=""></div>
+		<div><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1583325869825&di=a2e5c74f0e4e575b39b166885d1d64eb&imgtype=0&src=http%3A%2F%2Fimage.biaobaiju.com%2Fuploads%2F20190424%2F11%2F1556076021-iXcyvkSAom.jpg" alt=""></div>
+		<div><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1583325948116&di=d7ac8ac05817485fe83eb59f83e8aa90&imgtype=0&src=http%3A%2F%2Fa.hiphotos.baidu.com%2Fzhidao%2Fpic%2Fitem%2Fbba1cd11728b471029f2fe42c2cec3fdfd03235a.jpg" alt=""></div><div><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1583325948119&di=c305d45919f6a855ebc2acbd92671e66&imgtype=0&src=http%3A%2F%2Fpic.90sjimg.com%2Fback_pic%2Fqk%2Fback_origin_pic%2F00%2F02%2F98%2Fdbce360dd8cabe2cb620d72d3d85ac39.jpg" alt=""></div>
+		<div><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1583325869825&di=a2e5c74f0e4e575b39b166885d1d64eb&imgtype=0&src=http%3A%2F%2Fimage.biaobaiju.com%2Fuploads%2F20190424%2F11%2F1556076021-iXcyvkSAom.jpg" alt=""></div>
+		<div><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1583325948117&di=464b8baeca6cad13442e084fe78a5b1c&imgtype=0&src=http%3A%2F%2Fimage.biaobaiju.com%2Fuploads%2F20190928%2F18%2F1569667980-CzbaOZTRDJ.jpg" alt=""></div>
+		<div><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1583325948116&di=d7ac8ac05817485fe83eb59f83e8aa90&imgtype=0&src=http%3A%2F%2Fa.hiphotos.baidu.com%2Fzhidao%2Fpic%2Fitem%2Fbba1cd11728b471029f2fe42c2cec3fdfd03235a.jpg" alt=""></div>
+		<div><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1583325948119&di=c305d45919f6a855ebc2acbd92671e66&imgtype=0&src=http%3A%2F%2Fpic.90sjimg.com%2Fback_pic%2Fqk%2Fback_origin_pic%2F00%2F02%2F98%2Fdbce360dd8cabe2cb620d72d3d85ac39.jpg" alt=""></div>
+		<div><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1583325869825&di=a2e5c74f0e4e575b39b166885d1d64eb&imgtype=0&src=http%3A%2F%2Fimage.biaobaiju.com%2Fuploads%2F20190424%2F11%2F1556076021-iXcyvkSAom.jpg" alt=""></div>
+		<div><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1583325948116&di=d7ac8ac05817485fe83eb59f83e8aa90&imgtype=0&src=http%3A%2F%2Fa.hiphotos.baidu.com%2Fzhidao%2Fpic%2Fitem%2Fbba1cd11728b471029f2fe42c2cec3fdfd03235a.jpg" alt=""></div><div><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1583325948119&di=c305d45919f6a855ebc2acbd92671e66&imgtype=0&src=http%3A%2F%2Fpic.90sjimg.com%2Fback_pic%2Fqk%2Fback_origin_pic%2F00%2F02%2F98%2Fdbce360dd8cabe2cb620d72d3d85ac39.jpg" alt=""></div>
+		<div><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1583325869825&di=a2e5c74f0e4e575b39b166885d1d64eb&imgtype=0&src=http%3A%2F%2Fimage.biaobaiju.com%2Fuploads%2F20190424%2F11%2F1556076021-iXcyvkSAom.jpg" alt=""></div>
+		<div><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1583325948117&di=464b8baeca6cad13442e084fe78a5b1c&imgtype=0&src=http%3A%2F%2Fimage.biaobaiju.com%2Fuploads%2F20190928%2F18%2F1569667980-CzbaOZTRDJ.jpg" alt=""></div>
+		<div><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1583325948116&di=d7ac8ac05817485fe83eb59f83e8aa90&imgtype=0&src=http%3A%2F%2Fa.hiphotos.baidu.com%2Fzhidao%2Fpic%2Fitem%2Fbba1cd11728b471029f2fe42c2cec3fdfd03235a.jpg" alt=""></div>
+		<div><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1583325948119&di=c305d45919f6a855ebc2acbd92671e66&imgtype=0&src=http%3A%2F%2Fpic.90sjimg.com%2Fback_pic%2Fqk%2Fback_origin_pic%2F00%2F02%2F98%2Fdbce360dd8cabe2cb620d72d3d85ac39.jpg" alt=""></div>
+		<div><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1583325869825&di=a2e5c74f0e4e575b39b166885d1d64eb&imgtype=0&src=http%3A%2F%2Fimage.biaobaiju.com%2Fuploads%2F20190424%2F11%2F1556076021-iXcyvkSAom.jpg" alt=""></div>
+		<div><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1583325948116&di=d7ac8ac05817485fe83eb59f83e8aa90&imgtype=0&src=http%3A%2F%2Fa.hiphotos.baidu.com%2Fzhidao%2Fpic%2Fitem%2Fbba1cd11728b471029f2fe42c2cec3fdfd03235a.jpg" alt=""></div>
+	</div>
+	<script>
+	window.onload = function(){
+		let arr=[];
+		let allwidth = $('.container').width();
+		let width = $('.container>div:first').width()+10;
+		let col = allwidth/width;
+		function waterFall(){
+			arr=[];
+			let imglist = $('.container')[0].children;
+			for(let i = 0;i < imglist.length;i++){
+				let img = imglist[i];
+				if(i<col){
+					$(img).css({top:0,left:i*width});
+					arr.push(img.offsetHeight);
+				}else{
+					let left = getfn(arr).minIdx*width;
+					let top = getfn(arr).min+10;
+					$(img).css({top:top,left:left});
+					arr[getfn(arr).minIdx] = arr[getfn(arr).minIdx]+$(img).height()+10;
+				}
+			}
+
+		}
+		function getfn(arr){
+				let min = arr[0];
+				let minIdx = 0;
+			for(let i = 1;i < arr.length;i++){
+				if(min > arr[i]){
+					min = arr[i];
+					minIdx = i;
+				}
+		}
+		return obj = {
+			min:min,
+			minIdx:minIdx
+		}
+	}
+		window.onscroll = function(){
+			let scrollTop = document.body.scrollTop||document.documentElement.scrollTop;
+			let clientHeight = document.body.clientHeight||document.documentElement.clientHeight;
+			if(getfn(arr).min <= (scrollTop+clientHeight)){
+					$.ajax({
+						type:'get',
+						url:'./publicCss.php',
+						dataType:'json',
+						success:function(data){
+							for(let i = 0;i<data.length;i++){
+							let div = document.createElement('div');
+							let img= document.createElement('img');
+							$('.container').append(div);
+							$(div).append(img);
+							img.src = data[i];
+						}
+							waterFall();
+						},
+						error:function(errMsg){
+							console.log(errMsg)
+						}
+					})
+				
+			} 
+		}
+		waterFall()
+	}
+	</script>
+</body>
+</html>
