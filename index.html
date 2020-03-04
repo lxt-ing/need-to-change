@@ -3,38 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <title>Document</title>
+  <script src = 'jquery.js'></script>
   <link rel="stylesheet" type="text/css" href="index.css">
   <!-- <script src="https://unpkg.com/vue/dist/vue.js"></script> -->
   <script type="text/javascript" src='index.js'></script>
-  <style>
-    #big{
-      border:3px solid;
-      width:100px;
-      height:100px;
-      border-color:#aaa;
-      position:relative;
-      animation: slow 5s;
-      -webkit-animation:slow 5s;
-    }
-    @keyframes slow{
-      0%{
-        top:0;
-        left:0;
-      }
-      25%{
-        left:25%;
-        border-color:lightyellow;
-      }
-      50%{
-        left:50%;
-        border-color:lightgreen;
-      }
-      100%{
-        right:0;
-        border-color:lightblue;
-      }
-    }
-  </style>
 </head>
 <body>
     <div id="main">
@@ -46,32 +18,41 @@
       </label>
       <div id="big">
       <!-- <div class="smallMask"></div> -->
-      <img src="https://p2.ssl.qhimgs1.com/sdr/400__/t01e9d5408de815c2d8.jpg" alt="">
+      <img src="http://pic41.nipic.com/20140508/18651744_193950975000_2.jpg" alt="">
+      <div class="cont active">
+        <h1>群星闪烁</h1>
+        <p>充满神秘的星空，吸引着人们去探索----------------！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！</p>
+      </div>
+      <div class="cont">
+        <h1>蓝色天空</h1>
+        <p>蓝色天空是这么晴朗，吸引着人们去探索----------------！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！</p>
+      </div>
+      <div class="cont">
+        <h1>粉色玫瑰</h1>
+        <p>粉色玫瑰，散发香味，吸引着人们去探索----------------！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！</p>
+      </div>
+      <div class="cont">
+        <h1>四君子之梅花</h1>
+        <p>已是悬崖百丈冰，唯有花枝俏，为有暗香来，吸引着人们去探索----------------！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！</p>
+      </div>
+      <div class="cont">
+        <h1>晚秋泛舟</h1>
+        <p>晚秋泛舟，别有一番诗情画意，----------------！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！</p>
+      </div>
       </div>
       <div id="mask">
       </div>
       <div id="imgList">
-      
-       <ul>
+       <ul class="imgul">
+        <li class="imgl"><img src="http://pic41.nipic.com/20140508/18651744_193950975000_2.jpg" alt=""></li>
         <li class="imgl"><img src="https://p2.ssl.qhimgs1.com/sdr/400__/t01e9d5408de815c2d8.jpg" alt=""></li>
         <li class="imgl"><img src="http://img4.makepolo.net/img4/889/947/100015388947_14292598542456.jpg" alt=""></li>
         <li class="imgl"><img src="http://p0.so.qhmsg.com/t01dbb4867331f059ae.jpg" alt=""></li>
         <li class="imgl"><img src="http://pic38.nipic.com/20140226/18071023_170411028000_2.jpg" alt=""></li>
-        <li class="imgl"><img src="http://pic41.nipic.com/20140508/18651744_193950975000_2.jpg" alt=""></li>
-         <li class="imgl"><img src="https://p2.ssl.qhimgs1.com/sdr/400__/t01e9d5408de815c2d8.jpg" alt=""></li>
-        <li class="imgl"><img src="http://img4.makepolo.net/img4/889/947/100015388947_14292598542456.jpg" alt=""></li>
-        <li class="imgl"><img src="http://p0.so.qhmsg.com/t01dbb4867331f059ae.jpg" alt=""></li>
-        <li class="imgl"><img src="http://pic38.nipic.com/20140226/18071023_170411028000_2.jpg" alt=""></li>
-        <li class="imgl"><img src="http://pic41.nipic.com/20140508/18651744_193950975000_2.jpg" alt=""></li>
         </ul>
       </div>
     </div>
-    <div class="transitiondiv"></div>
-  <!-- <div id="move">
-      移动的盒子
-  </div> -->
   <script>
-  
   </script>
 </body>
 </html>
